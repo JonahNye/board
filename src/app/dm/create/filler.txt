@@ -1,0 +1,1 @@
+universal form to create any "token". i.e. any object implemeting token interface
