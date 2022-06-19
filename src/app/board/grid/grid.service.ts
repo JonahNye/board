@@ -4,9 +4,7 @@ import { GridDimensions } from "./_models/grid.model";
 @Injectable() 
 export class GridService {
 
-    constructor(
-        private _renderer: Renderer2
-    ){}
+    constructor(){}
 
     /**
      * INfers screen width in inches based on dpi and a 1 inch square of the screen
@@ -27,14 +25,14 @@ export class GridService {
         };
     }
 
-    public buildRow(numberOfCells: number): HTMLDivElement {
-        let row : HTMLDivElement = this._renderer.createElement('div');
-        this._renderer.addClass(row, 'grid-row');
+    public buildRow(numberOfCells: number, renderer: Renderer2): HTMLDivElement {
+        let row : HTMLDivElement = renderer.createElement('div');
+        renderer.addClass(row, 'grid-row');
         for (let i: number = 0; i <= numberOfCells; i++){
-            let cell : HTMLDivElement = this._renderer.createElement('div');
-            this._renderer.addClass(cell, 'grid-cell');
-            this._renderer.addClass(cell, this._applyGridSettings())
-            this._renderer.appendChild(row, cell);
+            let cell : HTMLDivElement = renderer.createElement('div');
+            renderer.addClass(cell, 'grid-cell');
+            renderer.addClass(cell, this._applyGridSettings())
+            renderer.appendChild(row, cell);
         }
         return row;
     }

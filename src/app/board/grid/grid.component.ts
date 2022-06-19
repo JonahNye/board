@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Renderer2, ViewChild } from '@angular/core';
 import { GridService } from './grid.service';
 import { GridDimensions } from './_models/grid.model';
 
@@ -12,7 +12,10 @@ export class GridComponent implements AfterViewInit {
   
   public gridDimensions: GridDimensions | undefined;
   
-  constructor(private _gridService: GridService) { }
+  constructor(
+    private _gridService: GridService,
+    private _renderer: Renderer2
+    ) { }
 
   ngAfterViewInit(): void {
     this._getGridDimensions();
@@ -25,6 +28,6 @@ export class GridComponent implements AfterViewInit {
   }
 
   public buildRow(): HTMLDivElement{
-    return this._gridService.buildRow(this.gridDimensions?.gridWidthInInches as number);
+    return this._gridService.buildRow(this.gridDimensions?.gridWidthInInches as number, this._renderer);
   }
 }
