@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { GridService } from './grid.service';
+import { GridDimensions } from './_models/grid.model';
 
 @Component({
   selector: 'grid-component',
   templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.css']
+  styleUrls: ['./grid.component.scss']
 })
-export class GridComponent implements OnInit {
+export class GridComponent implements AfterViewInit {
+  @ViewChild("screenRef") public screenRef: HTMLDivElement | undefined;
+  
+  public gridDimensions: GridDimensions | undefined;
+  
+  constructor(private _gridService: GridService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this._getGridDimensions();
   }
 
+  private _getGridDimensions (): void {
+    if (this.screenRef){
+    this.gridDimensions = this._gridService.getDimensions(this.screenRef);
+    }
+  }
+
+  public buildRow(): HTMLDivElement{
+    return this._gridService.buildRow(this.gridDimensions?.gridWidthInInches as number);
+  }
 }

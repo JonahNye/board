@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BoardComponent } from './board.component';
 import { BoardService } from './board.service';
 import { GridComponent } from './grid/grid.component';
+import { GridService } from './grid/grid.service';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { GridComponent } from './grid/grid.component';
   ],
   imports: [],
   providers: [
-    BoardService
+    BoardService,
+    GridService
   ],
   exports: [
     BoardComponent

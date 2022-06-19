@@ -1,0 +1,15 @@
+div.cell {
+    width: 1in;
+    height: 1in;
+    border: 2px solid;
+    box-sizing: border-box;
+}
+
+div.cell-color-dark {
+    border-color: black;
+}
+
+
+div.cell-color-light {//implement color settings later
+    border-color: #fff;
+}

@@ -1,1 +1,9 @@
-<p>grid works!</p>
+<div *ngIf="gridDimensions" class="grid-cont">
+    <ng-template *ngFor="let item of createRange(gridDimensions.gridHeightInInches)">
+        {{buildRow()}}
+    </ng-template>
+</div>
+
+<!-- element used to help calculate dpi and screen width -->
+<div #screenRef id="dpi" style="height: 1in; width: 1in; left: 100%; position: fixed; top: 100%;"></div>
+<!-- 32X18 -->
