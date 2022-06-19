@@ -7,9 +7,14 @@ export class Entity implements IEntity {
         this.setCoordinates();
     }
 
+    /**
+     * The entity's representation in the UI
+     */
     elementRef: unknown;
-    simpleState: SimpleState | undefined;
-    specialState: SpecialState | undefined;
+    
+    /**
+     * The entity's positioning in the UI
+     */
     coordinates: Coordinates | undefined;
 
     getCoordinates(): Coordinates {
@@ -23,4 +28,15 @@ export class Entity implements IEntity {
     setCoordinates(): void {
         this.coordinates = this.getCoordinates()
     }
+
+    /**
+     * Master states determining visiblity and locked status
+     */
+    simpleState: SimpleState | undefined;
+
+    /**
+     * Special effects or status effects
+     */
+    specialState: SpecialState | undefined;
+
 }
