@@ -27,6 +27,9 @@ export interface SimpleState {
 
 export interface SpecialState {
     activeParticalEffect: Array<ParticalEffectEnum>;
-    activeStatusEffect: Array<StatusEffectIconEnum>;
 }
 
+export interface StatusEffectState {
+    activeStatusEffect: Array<StatusEffectIconEnum>;
+} 
+    

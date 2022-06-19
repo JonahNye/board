@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './global/angular-material/angular-material.module';
 import { LoadSpinnerModule } from './global/load-spinner/load-spinner.module';
-import { FrameModule } from './global/frame/frame.module';
+import { FrameModule } from './frame/frame.module';
 import { BoardModule } from './board/board.module';
 
 @NgModule({

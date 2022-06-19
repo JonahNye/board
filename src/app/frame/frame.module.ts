@@ -9,6 +9,9 @@ import { FrameService } from './frame.service';
   imports: [],
   providers: [
     FrameService
+  ],
+  exports: [
+    FrameComponent
   ]
 })
 export class FrameModule { }
