@@ -33,10 +33,4 @@ export class Entity implements IEntity {
      * Master states determining visiblity and locked status
      */
     simpleState: SimpleState | undefined;
-
-    /**
-     * Special effects or status effects
-     */
-    specialState: SpecialState | undefined;
-
 }
