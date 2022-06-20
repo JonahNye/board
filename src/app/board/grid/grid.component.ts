@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { GridService } from './grid.service';
 import { GridDimensions } from './_models/grid.model';
 
@@ -8,7 +8,8 @@ import { GridDimensions } from './_models/grid.model';
   styleUrls: ['./grid.component.scss']
 })
 export class GridComponent implements AfterViewInit {
-  @ViewChild("screenRef") public screenRef: HTMLDivElement | undefined;
+  @ViewChild("screenRef") public screenRef: ElementRef | undefined;
+  @ViewChild("gridParent") public gridContainer: ElementRef | undefined;
   
   public gridDimensions: GridDimensions | undefined;
   
@@ -27,7 +28,8 @@ export class GridComponent implements AfterViewInit {
     }
   }
 
-  public buildRow(): HTMLDivElement{
-    return this._gridService.buildRow(this.gridDimensions?.gridWidthInInches as number, this._renderer);
+  public buildGrid(): void{
+    let grid : HTMLDivElement = this._gridService.buildGrid(this.gridDimensions as GridDimensions, this._renderer);
+    this._renderer.appendChild(this.gridContainer?.nativeElement, grid);
   }
 }

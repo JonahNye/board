@@ -1,7 +1,7 @@
-<div *ngIf="gridDimensions" class="grid-cont">
-    <ng-template *ngFor="let item of createRange(gridDimensions.gridHeightInInches)">
-        {{buildRow()}}
-    </ng-template>
+<div #gridParent class="grid-cont">
+    <ng-container *ngIf="gridDimensions">
+            {{buildGrid()}}
+    </ng-container>
 </div>
 
 <!-- element used to help calculate dpi and screen width -->

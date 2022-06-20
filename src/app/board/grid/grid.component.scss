@@ -1,8 +1,21 @@
+div.grid-cont {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+div.row {
+    margin: 0;
+}
+
 div.cell {
     width: 1in;
     height: 1in;
     border: 2px solid;
     box-sizing: border-box;
+    display: block;
+    margin: 0;
 }
 
 div.cell-color-dark {
